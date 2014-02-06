@@ -19,7 +19,7 @@ var createEjsPreprocessor = function(logger, ejsOptions) {
             processed = "\
               (function() {\
                 this.JST || (this.JST = {});\
-                this.JST['" + templateName +
+                this.JST['" + templateName + '.html' + // Little hack for my specific needs
                   "'] = " + ejs.compile(content, {client: true}) +
             "}).call(this);";
         } catch (e) {
